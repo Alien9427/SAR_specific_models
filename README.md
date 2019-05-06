@@ -25,3 +25,7 @@ python 3.6
 ./models/alexnet_tsx.pth
 
   see ref[2]
+
+./models/alexnet_tsx_mstar_iter1920.pth
+  
+  see ref[2] achieving an overall accuracy of 99.34% on MSTAR 10-class target recognition task
