@@ -2,6 +2,8 @@
 
 This project provides some SAR specific models which have a strong ability to extract spatial features of single-polarization Synthetic Aperture Radar images.
 
+A novel deep learning framework Deep SAR-Net has been also proposed for SLC SAR images, together with trained models.
+
 ## reference
 [1] Imbalanced Large-Scale Complex Land Cover Classification of High-Resolution SAR Images with Deep Transfer Learning, submitted to IEEE GRSL (undergoing review)
 
