@@ -3,11 +3,12 @@
 This project provides some SAR specific models which have a strong ability to extract spatial features of single-polarization Synthetic Aperture Radar images.
 
 ## reference
-[1] Imbalanced Large-Scale Complex Land Cover Classification of High-Resolution SAR Images with Deep Transfer Learning (undergoing review)
+[1] Imbalanced Large-Scale Complex Land Cover Classification of High-Resolution SAR Images with Deep Transfer Learning, submitted to IEEE GRSL (undergoing review)
 
-[2] What, Where and How to Transfer in SAR Target Recognition Based on Deep CNNs (undergoing review)
+[2] What, Where and How to Transfer in SAR Target Recognition Based on Deep CNNs, submitted to IEEE TGRS (undergoing review)
+preprint version https://arxiv.org/abs/1906.01379
 
-preprint version https://www.researchgate.net/publication/331997369_What_Where_and_How_to_Transfer_in_SAR_Target_Recognition_Based_on_Deep_CNNs
+[3] Deep SAR-Net: Learning Objects from Signals, submitted to ISPRS Journal of Photogrammetry and Remote Sensing (undergoing review)
 
 ## Environment
 pytorch 0.4.0
@@ -29,3 +30,7 @@ python 3.6
 ./models/alexnet_tsx_mstar_iter1920.pth
   
   see ref[2] achieving an overall accuracy of 99.34% on MSTAR 10-class target recognition task
+  
+./models/slc_joint_deeper_3_F.pth
+  
+  see ref[3] training with 90% data
