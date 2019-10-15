@@ -7,7 +7,7 @@ A novel deep learning framework Deep SAR-Net has been also proposed for SLC SAR 
 ## reference
 [1] Imbalanced Large-Scale Complex Land Cover Classification of High-Resolution SAR Images with Deep Transfer Learning, submitted to IEEE GRSL (undergoing review)
 
-[2] What, Where and How to Transfer in SAR Target Recognition Based on Deep CNNs, submitted to IEEE TGRS (undergoing review)
+[2] What, Where and How to Transfer in SAR Target Recognition Based on Deep CNNs, submitted to IEEE TGRS (Accepted)
 preprint version https://arxiv.org/abs/1906.01379
 
 [3] Deep SAR-Net: Learning Objects from Signals, submitted to ISPRS Journal of Photogrammetry and Remote Sensing (undergoing review)
