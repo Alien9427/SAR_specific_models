@@ -5,10 +5,12 @@ This project provides some SAR specific models which have a strong ability to ex
 A novel deep learning framework Deep SAR-Net has been also proposed for SLC SAR images, together with trained models.
 
 ## reference
-[1] Imbalanced Large-Scale Complex Land Cover Classification of High-Resolution SAR Images with Deep Transfer Learning, submitted to IEEE GRSL (undergoing review)
+[1] Classification of Large-Scale High-Resolution SAR Images with Deep Transfer Learning, IEEE GRSL 2020, Accepted
 
-[2] What, Where and How to Transfer in SAR Target Recognition Based on Deep CNNs, submitted to IEEE TGRS (Accepted)
-preprint version https://arxiv.org/abs/1906.01379
+doi: 10.1109/LGRS.2020.2965558 url: https://arxiv.org/abs/2001.01425
+
+[2] What, Where and How to Transfer in SAR Target Recognition Based on Deep CNNs, IEEE TGRS, Accepted
+doi: 10.1109/TGRS.2019.2947634 url: https://arxiv.org/abs/1906.01379
 
 [3] Deep SAR-Net: Learning Objects from Signals, submitted to ISPRS Journal of Photogrammetry and Remote Sensing (undergoing review)
 
@@ -23,7 +25,7 @@ python 3.6
 
 ./models/resnet18_tsx_mstar_epoch7.pth
   
-  see ref[1] achieving an overall accuracy of 99.46% on MSTAR 10-class target recognition task
+  see ref[1] achieving an overall accuracy of 99.46% on MSTAR 10-class target recognition task without data augmentation
 
 ./models/alexnet_tsx.pth
 
