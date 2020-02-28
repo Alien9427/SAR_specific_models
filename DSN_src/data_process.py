@@ -8,6 +8,8 @@ import random
 
 def gen_all_spec(slc_root, spe_root):
     slc_list = os.listdir(slc_root)
+    if not os.path.exists(spe_root):
+        os.mkdir(spe_root)
     for cate in slc_list:
         if not os.path.exists(spe_root + cate):
             os.mkdir(spe_root + cate)
@@ -106,10 +108,10 @@ def gen_hv_data(data_txt):
 
 
 if __name__ == '__main__':
-    slc_root = '../data/slc_data_hh/'
+    slc_root = '../data/slc_data/'
     spe_root = '../data/spe_data/'
     gen_all_spec(slc_root, spe_root)
     # get_range_spec(spe_root)
     # gen_train_val(slc_root)
-    # get_mean_std_xy(spe_root)
+    get_mean_std_xy(spe_root)
     # gen_hv_data('../data/slc_val_3.txt')

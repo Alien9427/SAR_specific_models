@@ -11,12 +11,12 @@ import matplotlib.pyplot as plt
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)
-txt_file = {'train': '../data/slc_cae_train_3.txt',
-            'val': '../data/slc_cae_val_3.txt'}
+txt_file = {'train': '../data/slc_cae_train.txt',   # setting by yourself
+            'val': '../data/slc_cae_val.txt'}
 
 batch_size = {'train': 512,
               'val': 100}
-cate_num = 5
+
 save_model_path = '../model/slc_spexy_cae_3_'
 
 
@@ -36,7 +36,7 @@ dataloader = {x : DataLoader(dataset[x],
                for x in ['train', 'val']}
 
 net = network.SLC_spexy_CAE()
-net.load_state_dict(torch.load('../model/slc_spexy_cae_3.pth'))
+# net.load_state_dict(torch.load('../model/slc_spexy_cae_3.pth'))
 optimizer = optim.SGD(net.parameters(), lr=0.1, weight_decay=0.0005)
 loss_func = nn.MSELoss()
 # loss_func = losses.SARLoss()
@@ -48,8 +48,8 @@ net.to(device)
 params = list(net.parameters())
 
 writer = SummaryWriter('../log/' + save_model_path.split('/')[-1] + 'log')
-# fig = plt.subplots(2, 5)
-# fig.show()
+fig = plt.subplots(2, 5)
+fig.show()
 
 iter_val = iter(dataloader['val'])
 for epoch in range(epoch_num):
