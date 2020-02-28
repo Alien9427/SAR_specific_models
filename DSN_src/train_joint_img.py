@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(prog='arg_train')
 
-    parser.add_argument('--training_dataset', default=8)
+    parser.add_argument('--training_dataset', default=3)
     args = parser.parse_args()
     datasetnum = args.training_dataset
 
@@ -47,6 +47,7 @@ if __name__ == '__main__':
                 'val': '../data/slc_val_' + str(datasetnum) + '.txt'}
     batch_size = {'train': 256,
                   'val': 64}
+
     cate_num = 8
     save_model_path = '../model/slc_joint_deeper_img_' + str(datasetnum) + '_FR_'
 
@@ -79,8 +80,7 @@ if __name__ == '__main__':
                                     shuffle=True,
                                     num_workers=0)
 
-    # img_model = torch.load('../model/tsx.pth')
-    # spe_model = torch.load('../model/slc_spexy_cae_2.pth')
+    # img_model = torch.load('../model/resnet18_I_nwpu_tsx.pth')
     net_joint = network.SLC_joint2_img(cate_num)
     # net_joint = get_pretrained(img_model, net_joint)
     # net_joint.load_state_dict(torch.load('../model/slc_joint_deeper_img_3_F_epoch300.pth'))

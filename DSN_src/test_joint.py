@@ -3,13 +3,9 @@ import transform_data
 import slc_dataset
 from torchvision import transforms
 from torch.utils.data import DataLoader
-from sampler import ImbalancedDatasetSampler
 import numpy as np
 import torch
 from torch import nn
-from tensorboardX import SummaryWriter
-from learning_schedule import param_setting_jointmodel2
-from torch import optim
 import pandas as pd
 
 def matrix_analysis(label_pred, label_true, cate_num):
@@ -117,7 +113,7 @@ def save4feature(dataloader, net):
 if __name__ == '__main__':
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    txt_file = '../data/slc_val_19.txt'
+    txt_file = '../data/slc_val_3.txt'
     batch_size = 30
     cate_num = 8
 
@@ -145,24 +141,21 @@ if __name__ == '__main__':
                             shuffle=False,
                             num_workers=0)
 
-    pretrained_model = '../model/slc_joint_deeper_19_F.pth'
+    pretrained_model = '../model/slc_joint_deeper_3_F.pth'
     net_joint = network.SLC_joint2(cate_num)
     net_joint.load_state_dict(torch.load(pretrained_model))
 
     net_joint.to(device)
 
-
-    i = 0
-
-
     label2name = pd.read_csv('../data/catename2label_cate8.txt')
 
     net_joint.eval()
 
-    # funtest_prf_mtx(dataloader)
-    df_score = save4roc(dataloader)
-    model_name = pretrained_model.split('/')[-1].split('.')[0]
-    df_score.to_csv('../results/' + model_name + '_df.txt', index_label='label')
+    funtest_prf_mtx(dataloader) # confusion matrix
+
+    # df_score = save4roc(dataloader)
+    # model_name = pretrained_model.split('/')[-1].split('.')[0]
+    # df_score.to_csv('../results/' + model_name + '_df.txt', index_label='label')
     # df_feature = save4feature(dataloader, net_joint)
     # model_name = pretrained_model.split('/')[-1].split('.')[0]
     # df_feature.to_csv('../results/' + model_name + '_df_feature.txt', index_label='label')

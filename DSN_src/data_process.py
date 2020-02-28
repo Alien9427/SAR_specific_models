@@ -110,8 +110,7 @@ def gen_hv_data(data_txt):
 if __name__ == '__main__':
     slc_root = '../data/slc_data/'
     spe_root = '../data/spe_data/'
-    gen_all_spec(slc_root, spe_root)
+    gen_all_spec(slc_root, spe_root) # generate the 4-D signals for SAR images, saved in spe_root
     # get_range_spec(spe_root)
     # gen_train_val(slc_root)
-    get_mean_std_xy(spe_root)
-    # gen_hv_data('../data/slc_val_3.txt')
+    get_mean_std_xy(spe_root) # obtain the mean/std values of 4-D signals

@@ -12,6 +12,10 @@ from learning_schedule import param_setting_jointmodel2
 from torch import optim
 import argparse
 
+"""
+train_joint.py
+DSN training. Saved as ../model/slc_joint_deeper_3_F.pth
+"""
 
 def get_pretrained(img_model, net_joint):
     # spe_mapping = {'encoder1':'pre_spe.0',
@@ -38,7 +42,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(prog='arg_train')
 
-    parser.add_argument('--training_dataset', default=22)
+    parser.add_argument('--training_dataset', default=3)
     args = parser.parse_args()
     datasetnum = args.training_dataset
 
@@ -48,6 +52,7 @@ if __name__ == '__main__':
                 'val': '../data/slc_val_' + str(datasetnum) + '.txt'}
     batch_size = {'train': 256,
                   'val': 64}
+
     cate_num = 8
     save_model_path = '../model/slc_joint_deeper_' + str(datasetnum) + '_F_'
 
@@ -64,8 +69,8 @@ if __name__ == '__main__':
 
 
     dataset = {x : slc_dataset.SLC_img_spe4D(txt_file=txt_file[x],
-                                           img_dir='../data/slc_data/',
-                                           spe_dir='../data/spexy_data_3/',
+                                           img_dir='../data/slc_data/', # img
+                                           spe_dir='../data/spexy_data_3/', # frequency features
                                            img_transform=img_transform,
                                            spe_transform=spe_transform)
                for x in ['train', 'val']}
@@ -87,8 +92,7 @@ if __name__ == '__main__':
                                     shuffle=True,
                                     num_workers=0)
 
-    img_model = torch.load('../model/tsx.pth')
-    # spe_model = torch.load('../model/slc_spexy_cae_2.pth')
+    img_model = torch.load('../model/resnet18_I_nwpu_tsx.pth') # tsx pre-trained model for sar amplitude img. (gpu load)
     net_joint = network.SLC_joint2(cate_num)
     net_joint = get_pretrained(img_model, net_joint)
     # net_joint.load_state_dict(torch.load('../model/slc_joint_deeper_' + str(datasetnum) + '_F_con.pth'))
@@ -101,8 +105,8 @@ if __name__ == '__main__':
     parameter_list = param_setting_jointmodel2(model=net_joint)
 
     optimizer = optim.SGD(parameter_list, lr=0.01, weight_decay=0.0005)
-    lr_list = [param_group['lr'] for param_group in optimizer.param_groups]
-    loss_weight = torch.Tensor(loss_weight).to(device)
+    lr_list = [param_group['lr'] for param_group in optimizer.param_groups] # pytorch 0.4.0
+    loss_weight = torch.Tensor(loss_weight).to(device) # pytorch 0.4.0
     loss_func = nn.CrossEntropyLoss(weight=loss_weight)
 
     writer = SummaryWriter('../log/' + save_model_path.split('/')[-1] + 'log')
@@ -117,7 +121,6 @@ if __name__ == '__main__':
             spe_data = data['spe'].to(device)
             labels = data['label'].to(device)
             output = net_joint(spe_data, img_data)
-            # reg = 0.5 * 0.0005 * sum(p.data.norm() ** 2 for p in net_joint.parameters())
             loss = loss_func(output, labels)
             loss.backward()
             optimizer.step()

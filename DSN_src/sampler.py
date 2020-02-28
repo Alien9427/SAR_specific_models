@@ -44,8 +44,8 @@ class ImbalancedDatasetSampler(torch.utils.data.sampler.Sampler):
             return dataset.train_labels[idx].item()
         elif dataset_type is torchvision.datasets.ImageFolder:
             return dataset.imgs[idx][1]
-        elif dataset_type is slc_dataset.SLC_dcaFeature:
-            return dataset[idx]['label']
+        # elif dataset_type is slc_dataset.SLC_dcaFeature:
+        #     return dataset[idx]['label']
         # elif dataset_type is slc_dataset.SLC_img or slc_dataset.SLC_spectrogram:
         else:
             return dataset.data.loc[idx]['label']
