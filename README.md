@@ -2,7 +2,7 @@
 
 1. This project provides some SAR specific models with strong abilities to extract spatial features of single-polarization Synthetic Aperture Radar (SAR) amplitude images.
 
-2. A novel deep learning framework Deep SAR-Net (DSN) has been released for complex-valued SAR images.
+2. A novel deep learning framework Deep SAR-Net (DSN) has been released for complex-valued SAR images. (code: DSN_src)
 
 ## Environment
 Pytorch 0.4.0 (also verified in Pytorch 1.4.0)
