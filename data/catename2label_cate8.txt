@@ -1,9 +1,9 @@
 label,catename
-0,agriculture
-1,container
-2,forest
-3,industrialbuilding
-4,residential
-5,skyscraper
-6,storagetank
-7,water
+0,forest
+1,industrialbuilding
+2,residential
+3,skyscraper
+4,water
+5,storagetank
+6,container
+7,agriculture
