@@ -191,7 +191,7 @@ if __name__ == '__main__':
     parser.add_argument('--test_txt', default='../data/mstar_val.txt')
     parser.add_argument('--test_batchsize', type=int, default=50)
     parser.add_argument('--cate_num', type=int, default=10)
-    parser.add_argument('--pretrained_model_path', default='../model/resnet18_img_mstar_epoch25.pth')
+    parser.add_argument('--pretrained_model_path', default='../model/resnet18_tsx_mstar_epoch7.pth')
     args = parser.parse_args()
     config = parameter_setting(args)
 
