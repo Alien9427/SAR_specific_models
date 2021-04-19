@@ -14,6 +14,14 @@ Python 3.6
 ./model/resnet18_I_nwpu_tsx.pth [1]
   
   The SAR image pre-trained model in Reference [1].
+  
+  It can be transferred to any SAR classification or detection models with ResNet-18 backbone.
+  
+  ### Target Detection
+  
+  Taking **MMDetection** framework for example. MMDetection is an open source object detection toolbox based on PyTorch, it provides an interface to import the pretrained model to initialize the backbone when designing the detection network.
+  
+![Uploading image.png…]()
 
 ./model/resnet18_tsx_mstar_epoch7.pth [1]
   
