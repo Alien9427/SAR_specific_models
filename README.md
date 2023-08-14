@@ -1,7 +1,5 @@
 # &#x1F195; The Latest Version of DSN https://github.com/Alien9427/DSN
 
-any questions please contact huangzhongling15@mails.ucas.ac.cn
-
 ```
 @article{dsn2020,
 title = {Deep SAR-Net: Learning objects from signals},
@@ -13,7 +11,7 @@ issn = {0924-2716},
 author = {Z. Huang and M. Datcu and Z. Pan and B. Lei},
 }
 ```
-
+# &#x1F195; More SAR image pre-trained models are referred to [SAR-HUB](https://github.com/XAI4SAR/SAR-HUB)
 
 # SAR_specific_models
 
